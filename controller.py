@@ -138,9 +138,11 @@ def submit_login():
         if(login_name == "ADMIN") and (login_pswd=="123"):
             return render_template("indexadmin.html")
         elif(check_student(login_name,login_pswd)):
-            
             dashbord_name =login_name
             return render_template("indexstudent.html" , print_name = dashbord_name)
+        else:
+            return render_template("login.html")
+
        
     
 @app.route("/submitregister" ,methods = ['POST','GET'] )
